@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#wrapper {
+  height: 100vh;
+  /* We don't want to scroll in x direction, but want to scroll in y direction */
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 10px;
+  /* For 3D things, we need to have perspective define. This value is distance between screen and your eyes.
+    Here value doesn't matter, just value should be given. We have on perspective */
+}
+
+.container {
+  /* Non static position, so that images may have absolute w.r.t. their this container */
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* This transformstyle means we want to preserve 3d thing */
+  height: 100%;
+  /* This Z index tells which thing will come on which thing */
+  z-index: -1;
+  /* We preserve 3d thing */
+  transform-style: preserve-3d;
+}
+
+.background {
+  transform: translateZ(-40px) scale(5.2);
+  /* transform: translateZ(-100px); */
+}
+.foreground {
+  transform: translateZ(-10px) scale(2);
+  /* scale: 4; */
+}
+
+.background,
+.foreground {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  /* As we position, we should give Z-index. Now after giving Z-index, we can see text over image */
+  z-index: -1;
+  /* image to cover above given height for same container, so that it's aspect ratio doesn't gets affected */
+}
+
+h1 {
+  position: absolute;
+  top: 7rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 650;
+  font-style: normal;
+  /* The CSS code you provided affects the positioning of an element within its parent container. Let's break it down:
+
+left: 50%;: This sets the left edge of the element to be positioned at 50% of the width of its containing element. This essentially horizontally centers the element within its container.
+
+transform: translateX(-50%);: This CSS property applies a 2D or 3D transformation to the element. In this case, translateX(-50%) moves the element horizontally by -50% of its own width. Since this is applied after the left: 50% rule, it essentially shifts the element leftwards by half of its own width. This centers the element perfectly horizontally within its container. */
+
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10rem;
+  color: white;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  letter-spacing: 4px;
+}
+
+section {
+  background-color: rgb(45, 45, 45);
+  color: white;
+  padding: 5rem 0;
+}
+/* adding image using CSS */
+.bg1 {
+  background-image: url(./parallaxPractice/sport-1.jpg);
+}
+.bg2 {
+  background-image: url(./parallaxPractice/sport-2.jpg);
+}
+.bg3 {
+  background-image: url(./parallaxPractice/sport-3.jpg);
+}
+.secHeading {
+  font-size: 5rem;
+  padding: 0 10rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.text {
+  font-size: 1.5rem;
+  padding: 0 10rem;
+  margin: 5rem 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.bg {
+  position: relative;
+  width: 100%;
+  /* css property for having one image at one position */
+  background-attachment: fixed;
+  /* Now we want to have image at center and to have full image cover in screen */
+  background-position: center;
+  background-size: cover;
+  height: 500px;
+}
+
+.desc {
+  position: absolute;
+  background-color: white;
+  padding: 0.5rem 2.5rem;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: black;
+  font-size: 3rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.foter{
+    padding-top: 4px;
+    padding-bottom: 4px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 1.5rem;
+}
+
+
+
